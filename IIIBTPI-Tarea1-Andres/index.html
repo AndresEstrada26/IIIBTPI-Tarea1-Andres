@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo del Agua</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+            background-color: #cbeffd;
+            color: #1b4d74;
+        }
+        .offcanvas-start {
+            background-color: #87ceeb;
+            width: 300px;
+        }
+        .btn-success {
+            background-color: #48a9e6;
+            border: none;
+            margin: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            color: #1b4d74;
+        }
+        .container {
+            margin-top: 40px;
+        }
+        .offcanvas-title {
+            color: #fff;
+        }
+        .offcanvas-body p {
+            color: #f1f1f1;
+        }
+        .fas {
+            margin-right: 10px;
+        }
+        .header {
+            background-color: #1b4d74;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+        .content {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1b4d74;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Conoce el Ciclo del Agua</h1>
+</div>
+
+<button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+  <i class="fas fa-water"></i> Fases del Ciclo del Agua
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarLabel">Ciclo del Agua</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Selecciona una fase para ver la información correspondiente:</p>
+    <button class="btn btn-primary w-100 my-2" onclick="mostrarFase('evaporacion')"><i class="fas fa-sun"></i> Evaporación</button>
+    <button class="btn btn-primary w-100 my-2" onclick="mostrarFase('condensacion')"><i class="fas fa-cloud"></i> Condensación</button>
+    <button class="btn btn-primary w-100 my-2" onclick="mostrarFase('precipitacion')"><i class="fas fa-cloud-showers-heavy"></i> Precipitación</button>
+    <button class="btn btn-primary w-100 my-2" onclick="mostrarFase('infiltracion')"><i class="fas fa-hand-holding-water"></i> Infiltración</button>
+    <button class="btn btn-primary w-100 my-2" onclick="mostrarFase('escorrentia')"><i class="fas fa-stream"></i> Escorrentía</button>
+  </div>
+</div>
+
+<div class="container content">
+    <h2 id="faseTitulo">El Ciclo del Agua</h2>
+    <p id="faseDescripcion">El ciclo del agua describe el movimiento continuo del agua sobre, dentro y encima de la superficie de la Tierra. Este ciclo incluye varias fases importantes que mantienen el equilibrio de la naturaleza.</p>
+    <img id="faseImagen" src="https://tse3.mm.bing.net/th?id=OIP.d4CF8OmnqrNun3rIzZq8YAHaFA&pid=Api&P=0&h=180" alt="Ciclo del Agua" class="img-fluid mt-4" style="border-radius: 15px; max-width: 400px;">
+</div>
+
+<footer>
+    <p>&copy; 2024 Ciclo del Agua</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const fases = {
+        evaporacion: {
+            titulo: "Evaporación",
+            descripcion: "El agua se calienta y se convierte en vapor, ascendiendo a la atmósfera desde cuerpos de agua como océanos, ríos y lagos.",
+            imagen: "https://tse2.mm.bing.net/th?id=OIP.8bMmYpGEb0eWVnFVps4FtAHaHa&pid=Api&P=0&h=180"
+        },
+        condensacion: {
+            titulo: "Condensación",
+            descripcion: "El vapor de agua en la atmósfera se enfría y se transforma en gotas de agua, formando nubes.",
+            imagen: "https://tse3.mm.bing.net/th?id=OIP._Np5T61dk9MV-D736OE6CgHaEQ&pid=Api&P=0&h=180"
+        },
+        precipitacion: {
+            titulo: "Precipitación",
+            descripcion: "Las gotas de agua en las nubes se agrandan y caen a la superficie de la Tierra en forma de lluvia, nieve o granizo.",
+            imagen: "https://www.ecured.cu/images/2/20/Prec.jpg"
+        },
+        infiltracion: {
+            titulo: "Infiltración",
+            descripcion: "El agua penetra en el suelo y es absorbida por la tierra, almacenándose en acuíferos o fluyendo subterráneamente.",
+            imagen: "https://1.bp.blogspot.com/-S3l97-DO5aA/Xpf9nZSvEdI/AAAAAAAAAbc/7MVFXuQvMMkz9TaF3j-JFDU3zDatPbi1gCLcBGAsYHQ/w1200-h630-p-k-no-nu/infiltracion.JPG"
+        },
+        escorrentia: {
+            titulo: "Escorrentía",
+            descripcion: "El agua que no es absorbida por el suelo fluye por la superficie de la Tierra hacia ríos, lagos y océanos.",
+            imagen: "https://tse2.mm.bing.net/th?id=OIP.CnuPO1LZjrk5r8-_WnNxNQHaEK&pid=Api&P=0&h=180"
+        }
+    };
+
+    function mostrarFase(fase) {
+        document.getElementById('faseTitulo').textContent = fases[fase].titulo;
+        document.getElementById('faseDescripcion').textContent = fases[fase].descripcion;
+        document.getElementById('faseImagen').src = fases[fase].imagen;
+    }
+</script>
+
+</body>
+</html>
+
